@@ -4,11 +4,9 @@ import { useState, useEffect } from "react"
 import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Switch } from "@/components/ui/switch"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Bell, Compass, MapPin, Moon, Clock, Navigation } from "lucide-react"
+import { MapPin } from "lucide-react" // Keep only the required icon
 
 // Mock data for nearby mosques
 const nearbyMosques = [
@@ -45,7 +43,6 @@ const nearbyMosques = [
 
 export function NamazTimeComponent() {
   const [location, setLocation] = useState<[number, number] | null>(null)
-  const [notifications, setNotifications] = useState(false)
   const [selectedMosque, setSelectedMosque] = useState(nearbyMosques[0])
 
   useEffect(() => {
@@ -135,11 +132,6 @@ export function NamazTimeComponent() {
                 <span className="font-semibold">{time}</span>
               </div>
             ))}
-          </div>
-
-          {/* Additional Info */}
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Other components like Qibla, Hijri date, and notifications */}
           </div>
         </CardContent>
       </Card>
